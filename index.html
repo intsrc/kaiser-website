@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кайзер Комбат Клуб | Преміальні тренування з бойових мистецтв</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: rgb(27, 41, 61);
+            --primary-red: rgb(193, 25, 46);
+            --accent-gold: #d4af37;
+            --light-gray: #f8f9fa;
+            --dark-gray: #343a40;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            background-color: #0a0a0a;
+            color: white;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(10, 10, 10, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(193, 25, 46, 0.3);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary-red);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-red);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-red);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('images/background.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: var(--primary-red);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--primary-red);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: #a0152a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-red);
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-red);
+        }
+
+        /* About Section */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-red);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-red);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Disciplines Section */
+        .disciplines {
+            background-color: var(--primary-dark);
+        }
+
+        .disciplines-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .discipline-card:nth-child(1),
+        .discipline-card:nth-child(2),
+        .discipline-card:nth-child(3) {
+            grid-column: span 2;
+        }
+
+        .discipline-card:nth-child(4),
+        .discipline-card:nth-child(5) {
+            grid-column: span 3;
+        }
+
+        @media (max-width: 992px) {
+            .disciplines-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .discipline-card:nth-child(1),
+            .discipline-card:nth-child(2),
+            .discipline-card:nth-child(3),
+            .discipline-card:nth-child(4),
+            .discipline-card:nth-child(5) {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .disciplines-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .discipline-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(193, 25, 46, 0.2);
+        }
+
+        .discipline-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-red);
+        }
+
+        .discipline-icon {
+            font-size: 3rem;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+        }
+
+        .discipline-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .discipline-card p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* Schedule Section */
+        .schedule-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .tab-button {
+            background-color: transparent;
+            border: 2px solid rgba(193, 25, 46, 0.3);
+            color: white;
+            padding: 15px 25px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tab-button:hover {
+            background-color: rgba(193, 25, 46, 0.2);
+            border-color: var(--primary-red);
+            transform: translateY(-2px);
+        }
+
+        .tab-button.active {
+            background-color: var(--primary-red);
+            border-color: var(--primary-red);
+            color: white;
+            box-shadow: 0 5px 15px rgba(193, 25, 46, 0.4);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .schedule-day h3 {
+            color: var(--primary-red);
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .schedule-card {
+            background: linear-gradient(135deg, rgba(27, 41, 61, 0.9), rgba(27, 41, 61, 0.7));
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(193, 25, 46, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .schedule-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-red), var(--accent-gold));
+        }
+
+        .schedule-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-red);
+        }
+
+        .schedule-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .schedule-time {
+            color: var(--primary-red);
+            font-weight: 700;
+            font-size: 1.4rem;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .schedule-level {
+            background-color: rgba(193, 25, 46, 0.2);
+            color: var(--primary-red);
+            padding: 6px 15px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .schedule-discipline {
+            color: white;
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .schedule-description {
+            color: #ccc;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .schedule-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: rgba(193, 25, 46, 0.3);
+        }
+
+        /* Classes Section */
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .class-card {
+            background-color: var(--primary-dark);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .class-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .class-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .class-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .class-card:hover .class-image img {
+            transform: scale(1.1);
+        }
+
+        .class-content {
+            padding: 25px;
+        }
+
+        .class-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-red);
+        }
+
+        .class-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+        }
+
+        .class-content p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* Trainers Section */
+        .trainers {
+            background-color: var(--primary-dark);
+        }
+
+        .trainers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .trainer-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .trainer-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .trainer-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .trainer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .trainer-info {
+            padding: 25px;
+        }
+
+        .trainer-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .trainer-info .title {
+            color: var(--primary-red);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .trainer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .trainer-social a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .trainer-social a:hover {
+            color: var(--primary-red);
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background-color: var(--primary-dark);
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(193, 25, 46, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.popular {
+            border-color: var(--primary-red);
+            transform: scale(1.05);
+        }
+
+        .popular-tag {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background-color: var(--primary-red);
+            color: white;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .pricing-header {
+            margin-bottom: 30px;
+        }
+
+        .pricing-name {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-gold);
+        }
+
+        .pricing-price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            color: #aaa;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--primary-dark);
+        }
+
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-style: italic;
+            position: relative;
+        }
+
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary-red);
+            opacity: 0.3;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .author-info .title {
+            color: var(--primary-red);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 20px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary-red);
+            min-width: 40px;
+        }
+
+        .contact-details h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-form {
+            background-color: var(--primary-dark);
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-red);
+        }
+
+        .footer-col p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-red);
+            transform: translateY(-5px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-red);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-dark);
+                flex-direction: column;
+                padding: 20px 0;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">КАЙЗЕР<span>КОМБАТ</span></a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#home">Головна</a></li>
+                    <li><a href="#about">Про нас</a></li>
+                    <li><a href="#disciplines">Дисципліни</a></li>
+                    <li><a href="#schedule">Розклад</a></li>
+                    <li><a href="#classes">Заняття</a></li>
+                    <li><a href="#trainers">Тренери</a></li>
+                    <li><a href="#pricing">Ціни</a></li>
+                    <li><a href="#contact">Контакти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>РОЗКРИЙ СВОГО <span>ВНУТРІШНЬОГО ВОЇНА</span></h1>
+            <p>Приєднуйся до преміального клубу бойових мистецтв, де чемпіони формуються через дисципліну, відданість та
+                невпинні тренування.</p>
+            <div class="hero-buttons">
+                <a href="#classes" class="btn">Приєднатися</a>
+                <a href="#contact" class="btn btn-outline">Зв'язатися з нами</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>ПРО НАШ КЛУБ</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Де народжуються легенди</h3>
+                    <p>Заснований у 2010 році, Кайзер Комбат Клуб є лідером у сфері тренувань з бойових мистецтв,
+                        випускаючи бійців світового класу та ентузіастів фітнесу. Наш сучасний заклад поєднує традиційні
+                        методи тренувань з новітніми технологіями для досягнення неперевершених результатів.</p>
+                    <p>Маючи понад 500 активних членів та команду міжнародно сертифікованих тренерів, ми пропонуємо
+                        підтримуючу спільноту, де кожен - від початківців до професійних бійців - може процвітати.</p>
+                    <p>Наша філософія базується на повазі, дисципліні та постійному вдосконаленні. Ми віримо, що
+                        тренування з бойових мистецтв трансформують не лише ваше тіло, але й розум та дух.</p>
+                    <a href="#classes" class="btn">Дослідити заняття</a>
+                </div>
+                <div class="about-image">
+                    <img src="images/club.jpg" alt="Training Facility">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disciplines Section -->
+    <section class="section disciplines" id="disciplines">
+        <div class="container">
+            <div class="section-title">
+                <h2>БОЙОВІ ДИСЦИПЛІНИ</h2>
+            </div>
+            <div class="disciplines-grid">
+                <div class="discipline-card">
+                    <div class="discipline-icon">
+                        <i class="fas fa-hand-fist"></i>
+                    </div>
+                    <h3>Бокс</h3>
+                    <p>Опануйте мистецтво ударів, роботи ніг та захисних технік. Наша програма боксу зосереджена як на
+                        змагальних, так і на фітнес аспектах.</p>
+                    <a href="#" class="btn btn-outline">Дізнатися більше</a>
+                </div>
+                <div class="discipline-card">
+                    <div class="discipline-icon">
+                        <i class="fas fa-hand-back-fist"></i>
+                    </div>
+                    <h3>MMA</h3>
+                    <p>Змішані бойові мистецтва поєднують техніки з різних бойових стилів для найкращого досвіду
+                        бойового спорту.</p>
+                    <a href="#" class="btn btn-outline">Дізнатися більше</a>
+                </div>
+                <div class="discipline-card">
+                    <div class="discipline-icon">
+                        <i class="fas fa-person-falling"></i>
+                    </div>
+                    <h3>Дзюдо</h3>
+                    <p>Японське бойове мистецтво, що зосереджується на кидках, захватах та техніках боротьби на землі.
+                    </p>
+                    <a href="#" class="btn btn-outline">Дізнатися більше</a>
+                </div>
+                <div class="discipline-card">
+                    <div class="discipline-icon">
+                        <i class="fas fa-person-running"></i>
+                    </div>
+                    <h3>Капоейра</h3>
+                    <p>Бразильське бойове мистецтво, що поєднує елементи танцю, акробатики та музики.</p>
+                    <a href="#" class="btn btn-outline">Дізнатися більше</a>
+                </div>
+                <div class="discipline-card">
+                    <div class="discipline-icon">
+                        <i class="fas fa-people-pulling"></i>
+                    </div>
+                    <h3>Джиу Джитсу</h3>
+                    <p>Бразильське джиу-джитсу - мистецтво боротьби на землі з акцентом на техніки задушення та больові
+                        прийоми.</p>
+                    <a href="#" class="btn btn-outline">Дізнатися більше</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="section" id="schedule">
+        <div class="container">
+            <div class="section-title">
+                <h2>РОЗКЛАД ЗАНЯТЬ</h2>
+            </div>
+
+            <div class="schedule-tabs">
+                <button class="tab-button active" onclick="showTab('monday')">Понеділок</button>
+                <button class="tab-button" onclick="showTab('tuesday')">Вівторок</button>
+                <button class="tab-button" onclick="showTab('wednesday')">Середа</button>
+                <button class="tab-button" onclick="showTab('thursday')">Четвер</button>
+                <button class="tab-button" onclick="showTab('friday')">П'ятниця</button>
+                <button class="tab-button" onclick="showTab('saturday')">Субота</button>
+            </div>
+
+            <div id="monday" class="tab-content active">
+                <div class="schedule-day">
+                    <h3>Понеділок</h3>
+                    <div class="schedule-grid">
+                        <div class="schedule-card">
+                            <div class="schedule-header">
+                                <div class="schedule-time">16:00</div>
+                                <div class="schedule-level">Початківці</div>
+                            </div>
+                            <div class="schedule-discipline">MMA</div>
+                            <div class="schedule-description">Основи змішаних бойових мистецтв для новачків</div>
+                        </div>
+                        <div class="schedule-card">
+                            <div class="schedule-header">
+                                <div class="schedule-time">17:00</div>
+                                <div class="schedule-level">PRO</div>
+                            </div>
+                            <div class="schedule-discipline">MMA</div>
+                            <div class="schedule-description">Професійне тренування для досвідчених бійців</div>
+                        </div>
+                        <div class="schedule-card">
+                            <div class="schedule-header">
+                                <div class="schedule-time">18:00</div>
+                                <div class="schedule-level">Для дівчат</div>
+                            </div>
+                            <div class="schedule-discipline">Бокс</div>
+                            <div class="schedule-description">Спеціальні заняття з боксу для жінок</div>
+                        </div>
+                        <div class="schedule-card">
+                            <div class="schedule-header">
+                                <div class="schedule-time">19:00</div>
+                                <div class="schedule-level">Всі рівні</div>
+                            </div>
+                            <div class="schedule-discipline">Дзюдо</div>
+                            <div class="schedule-description">Японське мистецтво кидків та захватів</div>
+                        </div>
+                        <div class="schedule-card">
+                            <div class="schedule-header">
+                                <div class="schedule-time">20:00</div>
+                                <div class="schedule-level">Аматори</div>
+                            </div>
+                            <div class="schedule-discipline">MMA</div>
+                            <div class="schedule-description">Тренування для аматорів середнього рівня</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tuesday" class="tab-content">
+                <div class="schedule-day">
+                    <h3>Вівторок</h3>
+                    <div class="schedule-grid">
+                        <div class="schedule-card">
+                            
+                            <div class="schedule-header">
+                                <div class="schedule-time">17:00</div>
+                                <div class="schedule-level">Всі рівні</div>
+                            </div>
+                            <div class="schedule-discipline">Капоейра</div>
+                            <div class="schedule-description">Бразильське мистецтво танцю та бою</div>
+                        </div>
+                        <div class="schedule-card">
+                            
+                            <div class="schedule-header">
+                                <div class="schedule-time">18:00</div>
+                                <div class="schedule-level">Всі рівні</div>
+                            </div>
+                            <div class="schedule-discipline">Капоейра</div>
+                            <div class="schedule-description">Продовження тренування з капоейри</div>
+                        </div>
+                        <div class="schedule-card">
+                            
+                            <div class="schedule-header">
+                                <div class="schedule-time">19:00</div>
+                                <div class="schedule-level">Початківці</div>
+                            </div>
+                            <div class="schedule-discipline">Бокс</div>
+                            <div class="schedule-description">Основи боксу для новачків</div>
+                        </div>
+                        <div class="schedule-card">
+                            
+                            <div class="schedule-header">
+                                <div class="schedule-time">20:00</div>
+                                <div class="schedule-level">Аматори</div>
+                            </div>
+                            <div class="schedule-discipline">Бокс</div>
+                            <div class="schedule-description">Тренування для досвідчених боксерів</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="wednesday" class="tab-content">
+                <div class="schedule-day">
+                    <h3>Середа</h3>
+                    <div class="schedule-grid">
+                        <div class="schedule-card">
+                            
+                            <div class="schedule-header">
+                                <div class="schedule-time">16:00</div>
+                                <div class="schedule-level">Початківці</div>
+                            </div>
+                            <div class="schedule-discipline">MMA</div>
+                            <div class="schedule-description">Основи змішаних бойових мистецтв для новачків</div>
+                        </div>
+                        <div class="schedule-card">
+                            <i class="fas fa-fire schedule-icon"></i>
+                            <div class="schedule-header">
+                                <div class="schedule-time">17:00</div>
+                                <div class="schedule-level">PRO</div>
+                            </div>
+                            <div class="schedule-discipline">MMA</div>
+                            <div class="schedule-description">Професійне тренування для досвідчених бійців</div>
+                        </div>
+                        <div class="schedule-card">
+                            
+                            <div class="schedule-header">
+                                <div class="schedule-time">18:00</div>
+                                <div class="schedule-level">Для дівчат</div>
+                            </div>
+                            <div class="schedule-discipline">Бокс</div>
+                            <div class="schedule-description">Спеціальні заняття з боксу для жінок</div>
+                        </div>
+                        <div class="schedule-card">
+                            
+                            <div class="schedule-header">
+                                <div class="schedule-time">19:00</div>
+                                <div class="schedule-level">Всі рівні</div>
+                            </div>
+                            <div class="schedule-discipline">Дзюдо</div>
+                            <div class="schedule-description">Японське мистецтво кидків та захватів</div>
+                        </div>
+                        <div class="schedule-card">
+                            
+                            <div class="schedule-header">
+                                <div class="schedule-time">20:00</div>
+                                <div class="schedule-level">Аматори</div>
+                            </div>
+                            <div class="schedule-discipline">MMA</div>
+                            <div class="schedule-description">Тренування для аматорів середнього рівня</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="thursday" class="tab-content">
+                <div class="schedule-day">
+                    <h3>Четвер</h3>
+                    <div class="schedule-grid">
+                        <div class="schedule-card">
+                            
+                            <div class="schedule-header">
+                                <div class="schedule-time">17:00</div>
+                                <div class="schedule-level">Всі рівні</div>
+                            </div>
+                            <div class="schedule-discipline">Капоейра</div>
+                            <div class="schedule-description">Бразильське мистецтво танцю та бою</div>
+                        </div>
+                        <div class="schedule-card">
+                            
+                            <div class="schedule-header">
+                                <div class="schedule-time">18:00</div>
+                                <div class="schedule-level">Всі рівні</div>
+                            </div>
+                            <div class="schedule-discipline">Капоейра</div>
+                            <div class="schedule-description">Продовження тренування з капоейри</div>
+                        </div>
+                        <div class="schedule-card">
+                            
+                            <div class="schedule-header">
+                                <div class="schedule-time">19:00</div>
+                                <div class="schedule-level">Початківці</div>
+                            </div>
+                            <div class="schedule-discipline">Бокс</div>
+                            <div class="schedule-description">Основи боксу для новачків</div>
+                        </div>
+                        <div class="schedule-card">
+                            
+                            <div class="schedule-header">
+                                <div class="schedule-time">20:00</div>
+                                <div class="schedule-level">Аматори</div>
+                            </div>
+                            <div class="schedule-discipline">Бокс</div>
+                            <div class="schedule-description">Тренування для досвідчених боксерів</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="friday" class="tab-content">
+                <div class="schedule-day">
+                    <h3>П'ятниця</h3>
+                    <div class="schedule-grid">
+                        <div class="schedule-card">
+                            
+                            <div class="schedule-header">
+                                <div class="schedule-time">16:00</div>
+                                <div class="schedule-level">Початківці</div>
+                            </div>
+                            <div class="schedule-discipline">MMA</div>
+                            <div class="schedule-description">Основи змішаних бойових мистецтв для новачків</div>
+                        </div>
+                        <div class="schedule-card">
+                            <i class="fas fa-fire schedule-icon"></i>
+                            <div class="schedule-header">
+                                <div class="schedule-time">17:00</div>
+                                <div class="schedule-level">PRO</div>
+                            </div>
+                            <div class="schedule-discipline">MMA</div>
+                            <div class="schedule-description">Професійне тренування для досвідчених бійців</div>
+                        </div>
+                        <div class="schedule-card">
+                            
+                            <div class="schedule-header">
+                                <div class="schedule-time">18:00</div>
+                                <div class="schedule-level">Для дівчат</div>
+                            </div>
+                            <div class="schedule-discipline">Бокс</div>
+                            <div class="schedule-description">Спеціальні заняття з боксу для жінок</div>
+                        </div>
+                        <div class="schedule-card">
+                            
+                            <div class="schedule-header">
+                                <div class="schedule-time">19:00</div>
+                                <div class="schedule-level">Всі рівні</div>
+                            </div>
+                            <div class="schedule-discipline">Дзюдо</div>
+                            <div class="schedule-description">Японське мистецтво кидків та захватів</div>
+                        </div>
+                        <div class="schedule-card">
+                            
+                            <div class="schedule-header">
+                                <div class="schedule-time">20:00</div>
+                                <div class="schedule-level">Аматори</div>
+                            </div>
+                            <div class="schedule-discipline">MMA</div>
+                            <div class="schedule-description">Тренування для аматорів середнього рівня</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="saturday" class="tab-content">
+                <div class="schedule-day">
+                    <h3>Субота</h3>
+                    <div class="schedule-grid">
+                        <div class="schedule-card">
+                            
+                            <div class="schedule-header">
+                                <div class="schedule-time">10:00</div>
+                                <div class="schedule-level">Всі рівні</div>
+                            </div>
+                            <div class="schedule-discipline">Бокс</div>
+                            <div class="schedule-description">Ранкове тренування з боксу для всіх рівнів</div>
+                        </div>
+                        <div class="schedule-card">
+                            
+                            <div class="schedule-header">
+                                <div class="schedule-time">12:00</div>
+                                <div class="schedule-level">Всі рівні</div>
+                            </div>
+                            <div class="schedule-discipline">Капоейра</div>
+                            <div class="schedule-description">Бразильське мистецтво танцю та бою</div>
+                        </div>
+                        <div class="schedule-card">
+                            <i class="fas fa-hand-paper schedule-icon"></i>
+                            <div class="schedule-header">
+                                <div class="schedule-time">16:00</div>
+                                <div class="schedule-level">Всі рівні</div>
+                            </div>
+                            <div class="schedule-discipline">Джиу Джитсу</div>
+                            <div class="schedule-description">Бразильське джиу-джитсу - боротьба на землі</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes Section -->
+    <section class="section" id="classes">
+        <div class="container">
+            <div class="section-title">
+                <h2>НАШІ ЗАНЯТТЯ</h2>
+            </div>
+            <div class="classes-grid">
+                <div class="class-card">
+                    <div class="class-image">
+                        <img src="https://placehold.co/400x300/1b293d/c1192e?text=Бокс+для+початківців"
+                            alt="Бокс для початківців">
+                    </div>
+                    <div class="class-content">
+                        <h3>Бокс для початківців</h3>
+                        <div class="class-meta">
+                            <span><i class="far fa-clock"></i> 60 хв</span>
+                            <span><i class="fas fa-user"></i> Всі рівні</span>
+                        </div>
+                        <p>Ідеально підходить для новачків, щоб вивчити основні техніки боксу, роботу ніг та базові
+                            комбінації.</p>
+                        <a href="#" class="btn">Приєднатися</a>
+                    </div>
+                </div>
+                <div class="class-card">
+                    <div class="class-image">
+                        <img src="https://placehold.co/400x300/1b293d/c1192e?text=MMA+PRO" alt="MMA PRO">
+                    </div>
+                    <div class="class-content">
+                        <h3>MMA PRO</h3>
+                        <div class="class-meta">
+                            <span><i class="far fa-clock"></i> 90 хв</span>
+                            <span><i class="fas fa-user"></i> Професійний</span>
+                        </div>
+                        <p>Просунуті техніки, робота на лапах та спаринг для серйозних практиків MMA.</p>
+                        <a href="#" class="btn">Приєднатися</a>
+                    </div>
+                </div>
+                <div class="class-card">
+                    <div class="class-image">
+                        <img src="https://placehold.co/400x300/1b293d/c1192e?text=Капоейра" alt="Капоейра">
+                    </div>
+                    <div class="class-content">
+                        <h3>Капоейра</h3>
+                        <div class="class-meta">
+                            <span><i class="far fa-clock"></i> 75 хв</span>
+                            <span><i class="fas fa-user"></i> Всі рівні</span>
+                        </div>
+                        <p>Бразильське бойове мистецтво, що поєднує танець, акробатику та музику.</p>
+                        <a href="#" class="btn">Приєднатися</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trainers Section -->
+    <section class="section trainers" id="trainers">
+        <div class="container">
+            <div class="section-title">
+                <h2>ПОЗНАЙОМТЕСЯ З НАШИМИ ТРЕНЕРАМИ</h2>
+            </div>
+            <div class="trainers-grid">
+                <div class="trainer-card">
+                    <div class="trainer-image">
+                        <img src="images/boxing.png" alt="Тренер Олексій">
+                    </div>
+                    <div class="trainer-info">
+                        <h3>Сергій</h3>
+                        <span class="title">Головний тренер з боксу</span>
+                        <p>Колишній професійний боксер з 15-річним досвідом тренерської роботи.</p>
+                        <div class="trainer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="trainer-card">
+                    <div class="trainer-image">
+                        <img src="images/music.png" alt="Тренер Майя">
+                    </div>
+                    <div class="trainer-info">
+                        <h3>Руслан</h3>
+                        <span class="title">Спеціаліст з капоейри</span>
+                        <p>Національна чемпіонка з капоейри та сертифікований тренер.</p>
+                        <div class="trainer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="trainer-card">
+                    <div class="trainer-image">
+                        <img src="images/mma.png" alt="Тренер Маркус">
+                    </div>
+                    <div class="trainer-info">
+                        <h3>Богдан</h3>
+                        <span class="title">Головний тренер MMA</span>
+                        <p>Колишній боєць UFC та чорний пояс з бразильського джиу-джитсу.</p>
+                        <div class="trainer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="trainer-card">
+                    <div class="trainer-image">
+                        <img src="images/spain.png" alt="Тренер Софія">
+                    </div>
+                    <div class="trainer-info">
+                        <h3>Теодор</h3>
+                        <span class="title">Експерт з дзюдо</span>
+                        <p>Міжнародно сертифікований інструктор з дзюдо з понад 10-річним досвідом.</p>
+                        <div class="trainer-social">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>ТАРИФНІ ПЛАНИ</h2>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="popular-tag">ПОПУЛЯРНИЙ</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">План Боєць</h3>
+                        <div class="pricing-price">2500₴<span>/місяць</span></div>
+                        <p>Необмежений доступ до всіх занять</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Необмежені заняття</li>
+                        <li>Персональне тренування</li>
+                        <li>Консультації з харчування</li>
+                        <li>Знижка на екіпірування</li>
+                        <li>Підготовка до змагань</li>
+                    </ul>
+                    <a href="#" class="btn">Почати</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">План Воїн</h3>
+                        <div class="pricing-price">1800₴<span>/місяць</span></div>
+                        <p>Ідеально для регулярних тренувань</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>8 занять на місяць</li>
+                        <li>Групові тренування</li>
+                        <li>Базові поради з харчування</li>
+                        <li>Знижка на екіпірування</li>
+                        <li>-</li>
+                    </ul>
+                    <a href="#" class="btn">Почати</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">План Чемпіон</h3>
+                        <div class="pricing-price">3800₴<span>/місяць</span></div>
+                        <p>Для серйозних змагунів</p>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Необмежені заняття</li>
+                        <li>4 персональні сесії</li>
+                        <li>Індивідуальний план харчування</li>
+                        <li>Участь у змаганнях</li>
+                        <li>Відновлювальні сесії</li>
+                    </ul>
+                    <a href="#" class="btn">Почати</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>ВІДГУКИ УЧАСНИКІВ</h2>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Тренування в Кайзер Комбат Клубі змінили моє життя. Я не тільки схуд на
+                        15 кг, але й набув неймовірної впевненості та ментальної стійкості. Тренери світового класу, а
+                        спільнота неймовірно підтримуюча.</p>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://placehold.co/100x100/1b293d/c1192e?text=ІМ" alt="Іван Мельник">
+                        </div>
+                        <div class="author-info">
+                            <h4>Іван Мельник</h4>
+                            <span class="title">Учасник протягом 2 років</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>ЗВ'ЯЗАТИСЯ З НАМИ</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Наше розташування</h3>
+                            <p>вул. Бойова, 123, Спортивний район<br>Київ, Україна 01001</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Номер телефону</h3>
+                            <p>+38 (044) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Електронна пошта</h3>
+                            <p>info@kaisercombatclub.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Години роботи</h3>
+                            <p>Понеділок - П'ятниця: 6:00 - 22:00<br>Субота - Неділя: 8:00 - 20:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Повне ім'я</label>
+                            <input type="text" id="name" placeholder="Введіть ваше ім'я">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Електронна пошта</label>
+                            <input type="email" id="email" placeholder="Введіть вашу пошту">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Номер телефону</label>
+                            <input type="tel" id="phone" placeholder="Введіть ваш телефон">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Повідомлення</label>
+                            <textarea id="message" placeholder="Введіть ваше повідомлення"></textarea>
+                        </div>
+                        <button type="submit" class="btn">Надіслати повідомлення</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>КАЙЗЕР КОМБАТ КЛУБ</h3>
+                    <p>Де чемпіони народжуються через дисципліну, відданість та невпинні тренування. Приєднуйтесь до
+                        нашої спільноти сьогодні.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Швидкі посилання</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Головна</a></li>
+                        <li><a href="#about">Про нас</a></li>
+                        <li><a href="#disciplines">Дисципліни</a></li>
+                        <li><a href="#schedule">Розклад</a></li>
+                        <li><a href="#classes">Заняття</a></li>
+                        <li><a href="#trainers">Тренери</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Дисципліни</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Бокс</a></li>
+                        <li><a href="#">MMA</a></li>
+                        <li><a href="#">Дзюдо</a></li>
+                        <li><a href="#">Капоейра</a></li>
+                        <li><a href="#">Джиу Джитсу</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Розсилка</h3>
+                    <p>Підпишіться на нашу розсилку для отримання тренувальних порад та спеціальних пропозицій.</p>
+                    <form>
+                        <div class="form-group">
+                            <input type="email" placeholder="Введіть вашу пошту">
+                        </div>
+                        <button type="submit" class="btn">Підписатися</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Кайзер Комбат Клуб. Всі права захищені.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function () {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu if open
+                document.querySelector('nav ul').classList.remove('show');
+            });
+        });
+
+        // Sticky Header
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
+                header.style.padding = '15px 0';
+            } else {
+                header.style.backgroundColor = 'rgba(10, 10, 10, 0.9)';
+                header.style.padding = '20px 0';
+            }
+        });
+
+        // Schedule Tabs
+        function showTab(tabId) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tab buttons
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
