@@ -277,7 +277,7 @@
             .disciplines-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .discipline-card:nth-child(1),
             .discipline-card:nth-child(2),
             .discipline-card:nth-child(3),
@@ -936,6 +936,62 @@
                 font-size: 2rem;
             }
         }
+
+        /* Force Desktop View Override */
+        body.desktop-forced {
+            min-width: 1200px !important;
+        }
+
+        body.desktop-forced .mobile-menu-btn {
+            display: none !important;
+        }
+
+        body.desktop-forced nav ul {
+            display: flex !important;
+            position: static !important;
+            width: auto !important;
+            background-color: transparent !important;
+            flex-direction: row !important;
+            padding: 0 !important;
+        }
+
+        body.desktop-forced nav ul li {
+            margin: 0 0 0 30px !important;
+            text-align: left !important;
+        }
+
+        body.desktop-forced .hero h1 {
+            font-size: 5rem !important;
+        }
+
+        body.desktop-forced .btn {
+            display: inline-block !important;
+            width: auto !important;
+            margin-bottom: 0 !important;
+        }
+
+        body.desktop-forced .btn-outline {
+            margin-left: 15px !important;
+        }
+
+        body.desktop-forced .about-content {
+            flex-direction: row !important;
+        }
+
+        body.desktop-forced .disciplines-grid {
+            grid-template-columns: repeat(6, 1fr) !important;
+        }
+
+        body.desktop-forced .discipline-card:nth-child(1),
+        body.desktop-forced .discipline-card:nth-child(2),
+        body.desktop-forced .discipline-card:nth-child(3) {
+            grid-column: span 2 !important;
+        }
+
+        body.desktop-forced .discipline-card:nth-child(4),
+        body.desktop-forced .discipline-card:nth-child(5) {
+            grid-column: span 3 !important;
+        }
     </style>
 </head>
 
@@ -1124,7 +1180,7 @@
                     <h3>Вівторок</h3>
                     <div class="schedule-grid">
                         <div class="schedule-card">
-                            
+
                             <div class="schedule-header">
                                 <div class="schedule-time">17:00</div>
                                 <div class="schedule-level">Всі рівні</div>
@@ -1133,7 +1189,7 @@
                             <div class="schedule-description">Бразильське мистецтво танцю та бою</div>
                         </div>
                         <div class="schedule-card">
-                            
+
                             <div class="schedule-header">
                                 <div class="schedule-time">18:00</div>
                                 <div class="schedule-level">Всі рівні</div>
@@ -1142,7 +1198,7 @@
                             <div class="schedule-description">Продовження тренування з капоейри</div>
                         </div>
                         <div class="schedule-card">
-                            
+
                             <div class="schedule-header">
                                 <div class="schedule-time">19:00</div>
                                 <div class="schedule-level">Початківці</div>
@@ -1151,7 +1207,7 @@
                             <div class="schedule-description">Основи боксу для новачків</div>
                         </div>
                         <div class="schedule-card">
-                            
+
                             <div class="schedule-header">
                                 <div class="schedule-time">20:00</div>
                                 <div class="schedule-level">Аматори</div>
@@ -1168,7 +1224,7 @@
                     <h3>Середа</h3>
                     <div class="schedule-grid">
                         <div class="schedule-card">
-                            
+
                             <div class="schedule-header">
                                 <div class="schedule-time">16:00</div>
                                 <div class="schedule-level">Початківці</div>
@@ -1186,7 +1242,7 @@
                             <div class="schedule-description">Професійне тренування для досвідчених бійців</div>
                         </div>
                         <div class="schedule-card">
-                            
+
                             <div class="schedule-header">
                                 <div class="schedule-time">18:00</div>
                                 <div class="schedule-level">Для дівчат</div>
@@ -1195,7 +1251,7 @@
                             <div class="schedule-description">Спеціальні заняття з боксу для жінок</div>
                         </div>
                         <div class="schedule-card">
-                            
+
                             <div class="schedule-header">
                                 <div class="schedule-time">19:00</div>
                                 <div class="schedule-level">Всі рівні</div>
@@ -1204,7 +1260,7 @@
                             <div class="schedule-description">Японське мистецтво кидків та захватів</div>
                         </div>
                         <div class="schedule-card">
-                            
+
                             <div class="schedule-header">
                                 <div class="schedule-time">20:00</div>
                                 <div class="schedule-level">Аматори</div>
@@ -1221,7 +1277,7 @@
                     <h3>Четвер</h3>
                     <div class="schedule-grid">
                         <div class="schedule-card">
-                            
+
                             <div class="schedule-header">
                                 <div class="schedule-time">17:00</div>
                                 <div class="schedule-level">Всі рівні</div>
@@ -1230,7 +1286,7 @@
                             <div class="schedule-description">Бразильське мистецтво танцю та бою</div>
                         </div>
                         <div class="schedule-card">
-                            
+
                             <div class="schedule-header">
                                 <div class="schedule-time">18:00</div>
                                 <div class="schedule-level">Всі рівні</div>
@@ -1239,7 +1295,7 @@
                             <div class="schedule-description">Продовження тренування з капоейри</div>
                         </div>
                         <div class="schedule-card">
-                            
+
                             <div class="schedule-header">
                                 <div class="schedule-time">19:00</div>
                                 <div class="schedule-level">Початківці</div>
@@ -1248,7 +1304,7 @@
                             <div class="schedule-description">Основи боксу для новачків</div>
                         </div>
                         <div class="schedule-card">
-                            
+
                             <div class="schedule-header">
                                 <div class="schedule-time">20:00</div>
                                 <div class="schedule-level">Аматори</div>
@@ -1265,7 +1321,7 @@
                     <h3>П'ятниця</h3>
                     <div class="schedule-grid">
                         <div class="schedule-card">
-                            
+
                             <div class="schedule-header">
                                 <div class="schedule-time">16:00</div>
                                 <div class="schedule-level">Початківці</div>
@@ -1283,7 +1339,7 @@
                             <div class="schedule-description">Професійне тренування для досвідчених бійців</div>
                         </div>
                         <div class="schedule-card">
-                            
+
                             <div class="schedule-header">
                                 <div class="schedule-time">18:00</div>
                                 <div class="schedule-level">Для дівчат</div>
@@ -1292,7 +1348,7 @@
                             <div class="schedule-description">Спеціальні заняття з боксу для жінок</div>
                         </div>
                         <div class="schedule-card">
-                            
+
                             <div class="schedule-header">
                                 <div class="schedule-time">19:00</div>
                                 <div class="schedule-level">Всі рівні</div>
@@ -1301,7 +1357,7 @@
                             <div class="schedule-description">Японське мистецтво кидків та захватів</div>
                         </div>
                         <div class="schedule-card">
-                            
+
                             <div class="schedule-header">
                                 <div class="schedule-time">20:00</div>
                                 <div class="schedule-level">Аматори</div>
@@ -1318,7 +1374,7 @@
                     <h3>Субота</h3>
                     <div class="schedule-grid">
                         <div class="schedule-card">
-                            
+
                             <div class="schedule-header">
                                 <div class="schedule-time">10:00</div>
                                 <div class="schedule-level">Всі рівні</div>
@@ -1327,7 +1383,7 @@
                             <div class="schedule-description">Ранкове тренування з боксу для всіх рівнів</div>
                         </div>
                         <div class="schedule-card">
-                            
+
                             <div class="schedule-header">
                                 <div class="schedule-time">12:00</div>
                                 <div class="schedule-level">Всі рівні</div>
@@ -1639,7 +1695,7 @@
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#" onclick="forceDesktopView()"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
@@ -1733,6 +1789,91 @@
             // Add active class to clicked button
             event.target.classList.add('active');
         }
+
+        // Toggle Desktop/Mobile View
+        function forceDesktopView() {
+            const body = document.body;
+            const viewport = document.querySelector('meta[name="viewport"]');
+            
+            if (body.classList.contains('desktop-forced')) {
+                // Switch back to mobile view
+                body.classList.remove('desktop-forced');
+                
+                // Reset viewport to mobile
+                if (viewport) {
+                    viewport.setAttribute('content', 'width=device-width, initial-scale=1.0');
+                }
+                
+                // Remove preference from localStorage
+                localStorage.removeItem('forceDesktop');
+                
+                // Show mobile indicator (optional)
+                showViewToggleMessage('Switched to Mobile View');
+            } else {
+                // Switch to desktop view
+                body.classList.add('desktop-forced');
+                
+                // Set viewport to desktop width
+                if (viewport) {
+                    viewport.setAttribute('content', 'width=1200, initial-scale=0.3, user-scalable=yes');
+                }
+                
+                // Store preference in localStorage
+                localStorage.setItem('forceDesktop', 'true');
+                
+                // Show desktop indicator (optional)
+                showViewToggleMessage('Switched to Desktop View');
+            }
+            
+            // Prevent default link behavior
+            return false;
+        }
+
+        // Show toggle message
+        function showViewToggleMessage(message) {
+            // Create or update message element
+            let messageEl = document.getElementById('view-toggle-message');
+            if (!messageEl) {
+                messageEl = document.createElement('div');
+                messageEl.id = 'view-toggle-message';
+                messageEl.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: var(--primary-red);
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    z-index: 10000;
+                    font-size: 14px;
+                    font-weight: 600;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                `;
+                document.body.appendChild(messageEl);
+            }
+            
+            messageEl.textContent = message;
+            messageEl.style.opacity = '1';
+            
+            // Hide after 2 seconds
+            setTimeout(() => {
+                messageEl.style.opacity = '0';
+            }, 2000);
+        }
+
+        // Check if desktop view was previously forced
+        window.addEventListener('load', function () {
+            if (localStorage.getItem('forceDesktop') === 'true') {
+                document.body.classList.add('desktop-forced');
+                
+                // Set viewport to desktop width
+                let viewport = document.querySelector('meta[name="viewport"]');
+                if (viewport) {
+                    viewport.setAttribute('content', 'width=1200, initial-scale=0.3, user-scalable=yes');
+                }
+            }
+        });
     </script>
 </body>
 
